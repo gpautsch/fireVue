@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBF58qHN4rN3OYJFT9jxiYZoZsfhh0PcH4",
+    authDomain: "reserva-sala-virtual-fceqyn.firebaseapp.com",
+    databaseURL: "https://reserva-sala-virtual-fceqyn.firebaseio.com",
+    projectId: "reserva-sala-virtual-fceqyn",
+    storageBucket: "reserva-sala-virtual-fceqyn.appspot.com",
+    messagingSenderId: "836414346193",
+    appId: "1:836414346193:web:3473f169d7fce8cb88c6f0",
+    measurementId: "G-213YLBB1LC"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+
+</head>
+<body>
+    <h1>Activación via email con FireBase</h1>
+    <h4>Registro de Usuarios</h4>
+    <input id="email" type="text" placeholder="ingrese email:"> 
+    <input id="clave" type="password" placeholder="ingrese clave:">
+    <button onclick="registrar()">Registrar</button>
+   
+    <h4>Ingreso de Usuarios</h4>
+    <!-- LOS ID NO PUEDEN SER LOS MISMOS, por eso email2 y clave2 -->
+    <input id="email2" type="text" placeholder="ingrese email:"> 
+    <input id="clave2" type="password" placeholder="ingrese clave:">
+    <!--CAMBIO LA FUNCION POR ingreso()-->
+    <button onclick="ingresar()">Ingresar</button>
+   
+    <div id="contenido">
+      
+    </div>
+
+    <script src="app.js"></script>
+
+
+
+
+
+
+</body>
+</html>

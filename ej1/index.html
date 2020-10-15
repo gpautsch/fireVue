@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBF58qHN4rN3OYJFT9jxiYZoZsfhh0PcH4",
+    authDomain: "reserva-sala-virtual-fceqyn.firebaseapp.com",
+    databaseURL: "https://reserva-sala-virtual-fceqyn.firebaseio.com",
+    projectId: "reserva-sala-virtual-fceqyn",
+    storageBucket: "reserva-sala-virtual-fceqyn.appspot.com",
+    messagingSenderId: "836414346193",
+    appId: "1:836414346193:web:3473f169d7fce8cb88c6f0",
+    measurementId: "G-213YLBB1LC"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+<!-- 
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+-->
+
+</head>
+<body>
+    <h1>Registro de Usuarios en Firebase</h1>
+ 
+    <input id="email" type="text" placeholder="ingrese email:"> 
+    <input id="clave" type="password" placeholder="ingrese clave:">
+    <button onclick="registrar()">Registrar</button>
+    <script src="app.js"></script>
+
+
+
+
+
+
+</body>
+</html>

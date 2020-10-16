@@ -16,15 +16,16 @@
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first 
     -->
     <script>
+      /*
       if (user.emailVerified){
         console.log("Perimte");
       }
       else {
         console.log("Debo sacarlo");
       }
-
-    
+      **/
     </script>
+    
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
 
     <!-- Add Firebase products that you want to use 
@@ -36,21 +37,23 @@
 
   </head>
   <body>
-    <div class = "container">
-      <h1>Convocados para hoy:</h1>
-      <input type="text" id="nombre" placeholder="nombre" class="form-control my-3" >
-      <input type="text" id="apellido" placeholder="apellido" class="form-control my-3">
-      <select name="lado" type="text" id="lado" placeholder="lado" class="form-control my-3">
-        <option selected>Revés</option>
-        <option>Drive</option>
-      </select>
-      <input type="date" id="fecha" placeholder="fecha" class="form-control my-3">
-       
-      <!--
 
+    <div class = "container">
+      <h1>Convocados para hoy 18hs:</h1>
+      <!--
+        <form action="" method="" id="" name="fvalida">
       -->
-      <button class="btn btn-info" id="boton" onclick="guardar()">Guardar</button>
-   
+        <input type="text" id="nombre" title="Este campo es obligatorio" placeholder="nombre" class="form-control my-3" required>
+        <input type="text" id="apellido" title="Este campo es obligatorio" placeholder="apellido" class="form-control my-3" required>
+        <select name="lado" type="text" id="lado" placeholder="lado" class="form-control my-3">
+          <option selected>Revés</option>
+          <option>Drive</option>
+        </select>
+        <input type="date" id="fecha" title="Este campo es obligatorio" placeholder="fecha" class="form-control my-3" required>
+        <button class="btn btn-info" id="boton" onclick="guardar()">Guardar</button>
+      <!--
+        </form>
+      -->
       <table class="table" my-3>
         <thead>
           <tr>

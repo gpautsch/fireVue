@@ -17,29 +17,68 @@ firebase.initializeApp({
   // Initialize Firebase
   var db = firebase.firestore();
 
+  function validacion(nombre, apellido, lado, fecha){
+    console.log('Entro a Validar');
+    if (nombre = null || nombre.length == 0 || /^\s+$/.test(nombre)) {
+      alert('[ERROR] El campo nombre debe tener un valor');
+      //document.fvalida.nombre.focus()
+      return false;
+    }
+    else if (apellido = null || apellido.length == 0 || /^\s+$/.test(apellido)) {
+      alert('[ERROR] El campo apellido debe tener un valor');
+      //document.fvalida.apellido.focus()
+      return false;
+    }
+    else if (lado=null || lado.length == 0 || /^\s+$/.test(lado)) {
+      alert('[ERROR] El campo Lado debe tener un valor');
+      //document.fvalida.lado.focus()
+      return false;
+    }
+    else if (fecha=null || fecha.length == 0 || /^\s+$/.test(fecha)) {
+      alert('[ERROR] El campo Fecha debe tener un valor');
+      //document.fvalida.fecha.focus()
+      return false;
+    } else {
+      //document.fvalida.submit();
+      console.log('Validacion OK');
+      return true;     
+    }
+    // Si el script ha llegado a este punto, todas las condiciones
+    // se han cumplido, por lo que se devuelve el valor true
+   
+  }
+  
+
+
   //Agrega un elemento a la collection User
   function guardar(){
+         
     var nombre = document.getElementById('nombre').value;
     var apellido = document.getElementById('apellido').value;
     var lado = document.getElementById('lado').value;
     var fecha = document.getElementById('fecha').value;
 
-    db.collection("users").add({
-        first: nombre,
-        last: apellido,
-        side: lado,
-        born: fecha
-    })
-    .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-        document.getElementById('nombre').value = '';
-        document.getElementById('apellido').value = '';
-        document.getElementById('lado').value = '';
-        document.getElementById('fecha').value = '';
-    })
-    .catch(function(error) {
-        console.error("Error adding document: ", error);
-    });
+    if (validacion(nombre, apellido, lado, fecha)) {
+      console.log('entro al if del guardar');
+      db.collection("users").add({
+          first: nombre,
+          last: apellido,
+          side: lado,
+          born: fecha
+      })
+      .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+          document.getElementById('nombre').value = '';
+          document.getElementById('apellido').value = '';
+          document.getElementById('lado').value = '';
+          document.getElementById('fecha').value = '';
+          alert("Tus datos se registraron con Exito");
+      })
+      .catch(function(error) {
+          console.error("Error adding document: ", error);
+      });
+      
+    } 
   }
  
   // Leer Registros
@@ -97,26 +136,29 @@ firebase.initializeApp({
       var apellido = document.getElementById('apellido').value
       var lado = document.getElementById('lado').value
       var fecha = document.getElementById('fecha').value
-      return washingtonRef.update({
-          //capital: true
-          first: nombre,
-          last: apellido,
-          side: lado,
-          born: fecha
-      })
-      .then(function() {
-          console.log("Document successfully updated!");
-          document.getElementById('nombre').value = '';
-          document.getElementById('apellido').value = '';
-          document.getElementById('lado').value = 'Drive';
-          document.getElementById('fecha').value = '';
-          boton.innerHTML = 'Guardar';
-      })
-      .catch(function(error) {
-          // The document probably doesn't exist.
-          console.error("Error updating document: ", error);
-      });
-
+      if (validacion(nombre, apellido, lado, fecha)) {
+        console.log('entro al validar x Editar');
+        return washingtonRef.update({
+            //capital: true
+            first: nombre,
+            last: apellido,
+            side: lado,
+            born: fecha
+        })
+        .then(function() {
+            console.log("Document successfully updated!");
+            document.getElementById('nombre').value = '';
+            document.getElementById('apellido').value = '';
+            document.getElementById('lado').value = 'Drive';
+            document.getElementById('fecha').value = '';
+            boton.innerHTML = 'Guardar';
+            alert("Tus datos se editaron con Exito");
+        })
+        .catch(function(error) {
+            // The document probably doesn't exist.
+            console.error("Error updating document: ", error);
+        });
+      }
     }
 
   
